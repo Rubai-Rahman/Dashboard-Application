@@ -1,5 +1,5 @@
-import { columns, User } from '@/components/users/columns';
-import { DataTable } from '@/components/users/data-table';
+import { User } from '@/components/users/columns';
+import Home from '@/components/main/home';
 
 async function getData(): Promise<User[]> {
   // Fetch data from your API here.
@@ -10,11 +10,8 @@ async function getData(): Promise<User[]> {
 
 export default async function HomePage() {
   const data = await getData();
+
   console.log('data', data);
 
-  return (
-    <div className="container mx-auto py-10">
-      <DataTable columns={columns} data={data} />
-    </div>
-  );
+  return <Home data={data} />;
 }
