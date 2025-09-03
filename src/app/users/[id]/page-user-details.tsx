@@ -10,7 +10,6 @@ const UserDetails = async ({ params }: { params: { id: string } }) => {
   };
 
   const userData = await getData(); // Add await here
-  console.log('data', userData);
 
   return <UserPage userData={userData} />;
 };

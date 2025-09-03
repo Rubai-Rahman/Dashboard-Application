@@ -76,7 +76,7 @@ export function DataTable<TData extends BaseData, TValue>({
   const router = useRouter();
 
   // Handle row click to navigate to user details
-  const handleRowClick = (userId: string) => {
+  const handleRowClick = (userId: string | number) => {
     router.push(`/users/${userId}`);
   };
 

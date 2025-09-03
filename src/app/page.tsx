@@ -11,7 +11,6 @@ async function getData(): Promise<User[]> {
 export default async function HomePage() {
   const data = await getData();
 
-  console.log('data', data);
 
   return <Home data={data} />;
 }
