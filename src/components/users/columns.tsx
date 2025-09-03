@@ -1,7 +1,6 @@
 'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
-import { MoreHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ArrowUpDown } from 'lucide-react';
 import Link from 'next/link';
@@ -50,7 +49,7 @@ export const columns: ColumnDef<User>[] = [
       );
     },
     cell: ({ row }) => (
-      <Link 
+      <Link
         href={`/users/${row.original.id}`}
         className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
       >

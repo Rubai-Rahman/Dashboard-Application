@@ -29,10 +29,21 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from 'lucide-react';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -71,10 +82,10 @@ export function DataTable<TData, TValue>({
       x: 0,
       transition: {
         delay: i * 0.05,
-        duration: 0.3
-      }
+        duration: 0.3,
+      },
     }),
-    exit: { opacity: 0, x: 20 }
+    exit: { opacity: 0, x: 20 },
   };
 
   return (
@@ -120,7 +131,7 @@ export function DataTable<TData, TValue>({
           </DropdownMenu>
         </div>
       </div>
-      
+
       <div className="rounded-md border overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <Table>
@@ -154,10 +165,7 @@ export function DataTable<TData, TValue>({
                       className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                     >
                       {row.getVisibleCells().map((cell) => (
-                        <motion.td 
-                          key={cell.id}
-                          className="py-3 px-4"
-                        >
+                        <motion.td key={cell.id} className="py-3 px-4">
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
@@ -172,7 +180,10 @@ export function DataTable<TData, TValue>({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <TableCell colSpan={columns.length} className="h-24 text-center">
+                    <TableCell
+                      colSpan={columns.length}
+                      className="h-24 text-center"
+                    >
                       No results found.
                     </TableCell>
                   </motion.tr>
