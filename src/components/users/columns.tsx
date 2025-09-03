@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table';
 import { MoreHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ArrowUpDown } from 'lucide-react';
+import Link from 'next/link';
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -48,7 +49,14 @@ export const columns: ColumnDef<User>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => <div className="text-start">{row.original.name}</div>,
+    cell: ({ row }) => (
+      <Link 
+        href={`/users/${row.original.id}`}
+        className="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+      >
+        {row.original.name}
+      </Link>
+    ),
   },
   {
     accessorKey: 'email',
